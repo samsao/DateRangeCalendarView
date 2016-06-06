@@ -1,0 +1,49 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="one_eighth_spacing">1dp</dimen>
+    <dimen name="quarter_spacing">2dp</dimen>
+    <dimen name="half_spacing">4dp</dimen>
+    <dimen name="spacing">8dp</dimen>
+    <dimen name="four_fifths_spacing">10dp</dimen>
+    <dimen name="one_point_five_spacing">12dp</dimen>
+    <dimen name="double_spacing">16dp</dimen>
+    <dimen name="triple_spacing">24dp</dimen>
+    <dimen name="quadruple_spacing">32dp</dimen>
+    <dimen name="quintuple_spacing">40dp</dimen>
+    <dimen name="sixtuple_spacing">48dp</dimen>
+    <dimen name="octuple_spacing">64dp</dimen>
+
+    <!--font-->
+    <dimen name="font_size_extra_small">10sp</dimen>
+    <dimen name="font_size_very_small">12sp</dimen>
+    <dimen name="font_size_small">14sp</dimen>
+    <dimen name="font_size_small_medium">16sp</dimen>
+    <dimen name="font_size_medium">18sp</dimen>
+    <dimen name="font_size_medium_large">20sp</dimen>
+    <dimen name="font_size_large">24sp</dimen>
+
+
+    <!-- dateTitleLayout -->
+    <dimen name="dateTitleTextSize">18sp</dimen>
+    <dimen name="dateTitlePaddingRight">20dp</dimen>
+    <!-- weekLayout -->
+    <dimen name="dayOfWeekTextSize">16sp</dimen>
+    <!-- Day of the month -->
+    <dimen name="underline_weight">6dp</dimen>
+    <dimen name="underline_height">2dp</dimen>
+    <dimen name="day_of_month_background_size">32dp</dimen>
+    <dimen name="dayOfMonthIndicatorSize">3dp</dimen>
+    <dimen name="dayOfMonthImageMarginTop">20dp</dimen>
+    <dimen name="padding">8dp</dimen>
+
+
+    <!--New dimens-->
+    <dimen name="calendarTitlePaddingTop">8dp</dimen>
+    <dimen name="calendarTitlePaddingBottom">8dp</dimen>
+    <dimen name="weekTitlePaddingTop">8dp</dimen>
+    <dimen name="weekTitlePaddingBottom">8dp</dimen>
+    <dimen name="minDayCellHeight">40dp</dimen>
+</resources>

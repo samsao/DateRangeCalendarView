@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="theme_gray_light">#F8F8F8</color>
+    <color name="theme_gray_dark_light">#E6E5E5</color>
+    <color name="theme_green_grass">#8BC63F</color>
+    <color name="theme_green_exotic">#E6F2D5</color>
+    <color name="theme_green_exotic_alpha">#C0E6F2D5</color>
+    <color name="theme_gray_text_lighter">#999999</color>
+    <color name="theme_gray_text_lighter_alpha">#C0999999</color>
+    <color name="white">@android:color/white</color>
+    <color name="theme_gray_text">#666666</color>
+    <color name="theme_green_lime">#abe364</color>
+    <color name="theme_green_gray">#e3ebd4</color>
+</resources>

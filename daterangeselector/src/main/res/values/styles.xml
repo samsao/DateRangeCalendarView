@@ -1,0 +1,79 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ToolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="titleTextAppearance">@style/ToolbarTextStyle</item>
+    </style>
+
+    <style name="ToolbarTextStyle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
+    </style>
+
+    <style name="CalendarView.MonthTitle">
+        <item name="android:textSize">@dimen/font_size_medium_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CalendarView.DayOfTheWeek">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="CalendarView.DayOfTheMonth">
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">@dimen/minDayCellHeight</item>
+    </style>
+
+    <style name="CalendarView"></style>
+
+    <style name="CalendarViewCell">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginRight">@dimen/one_eighth_spacing</item>
+        <item name="android:layout_marginBottom">@dimen/one_eighth_spacing</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="CalendarTabTitleStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/theme_gray_text_lighter</item>
+        <item name="android:textSize">@dimen/font_size_small_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CalendarTabDateStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/theme_green_grass</item>
+        <item name="android:textSize">@dimen/font_size_small_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CalendarTabStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/one_point_five_spacing</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:baselineAligned="false"
+              android:orientation="horizontal"
+              android:tag="weekRow5"
+              android:weightSum="7">
+
+    <RelativeLayout
+        style="@style/CalendarViewCell"
+        android:tag="dayOfMonthContainer29">
+
+        <com.samsaodev.daterangeselector.calendar.DayView
+            style="@style/CalendarView.DayOfTheMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:tag="dayOfMonthText29"
+            android:text="29"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/CalendarViewCell"
+        android:tag="dayOfMonthContainer30">
+
+
+        <com.samsaodev.daterangeselector.calendar.DayView
+            style="@style/CalendarView.DayOfTheMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:tag="dayOfMonthText30"
+            android:text="30"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/CalendarViewCell"
+        android:tag="dayOfMonthContainer31">
+
+
+        <com.samsaodev.daterangeselector.calendar.DayView
+            style="@style/CalendarView.DayOfTheMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:tag="dayOfMonthText31"
+            android:text="31"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/CalendarViewCell"
+        android:tag="dayOfMonthContainer32">
+
+
+        <com.samsaodev.daterangeselector.calendar.DayView
+            style="@style/CalendarView.DayOfTheMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:tag="dayOfMonthText32"
+            android:text="32"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/CalendarViewCell"
+        android:tag="dayOfMonthContainer33">
+
+        <com.samsaodev.daterangeselector.calendar.DayView
+            style="@style/CalendarView.DayOfTheMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:tag="dayOfMonthText33"
+            android:text="33"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/CalendarViewCell"
+        android:tag="dayOfMonthContainer34">
+
+        <com.samsaodev.daterangeselector.calendar.DayView
+            style="@style/CalendarView.DayOfTheMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:tag="dayOfMonthText34"
+            android:text="34"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/CalendarViewCell"
+        android:layout_marginRight="0dp"
+        android:tag="dayOfMonthContainer35">
+
+        <com.samsaodev.daterangeselector.calendar.DayView
+            style="@style/CalendarView.DayOfTheMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:tag="dayOfMonthText35"
+            android:text="35"/>
+    </RelativeLayout>
+</LinearLayout>

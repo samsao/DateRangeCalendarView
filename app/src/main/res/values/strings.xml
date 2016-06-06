@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DateRangeCalendarView</string>
+    <string name="calendar_activity_start_title">Start</string>
+    <string name="calendar_activity_end_title">End</string>
+</resources>
