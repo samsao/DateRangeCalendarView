@@ -246,6 +246,7 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
      * Scroll calendar to start month if start date and end date are in the same month
      */
     public void scrollToStartMonth(Date startDate) {
+        mStartDate = startDate;
         mCustomCalendarView.scrollToStartMonth(startDate);
     }
 
