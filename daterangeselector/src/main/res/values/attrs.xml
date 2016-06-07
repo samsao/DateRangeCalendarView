@@ -9,7 +9,8 @@
         <attr name="weekTitleBackgroundColor" format="color"/>
         <attr name="dayOfWeekTextColor" format="color"/>
 
-        <attr name="daysInBetweenTextColor" format="color"/>
+        <attr name="currentMonthDaysTextColor" format="color"/>
+        <attr name="daysInBetweenBackgroundColor" format="color"/>
         <attr name="disabledDayBackgroundColor" format="color"/>
         <attr name="disabledDayTextColor" format="color"/>
         <attr name="selectedDayBackgroundColor" format="color"/>
