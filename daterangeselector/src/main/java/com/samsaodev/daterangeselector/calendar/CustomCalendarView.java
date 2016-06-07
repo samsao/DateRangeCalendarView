@@ -114,9 +114,6 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
             if (isInEditMode())
                 return;
         }
-
-//        getAttributes();
-        initializeCalendar();
     }
 
 
@@ -127,12 +124,13 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
 
         this.weekTitleBackgroundColor = weekTitleBackgroundColor;
         this.dayOfWeekTitleTextColor = dayOfWeekTextColor;
-        this.dayOfWeekTextColor = dayOfWeekTextColor;
+        this.daysInBetweenTextColor = dayOfWeekTextColor;
         this.selectedDayBackground = selectedDayBackground;
         this.selectedDayTextColor = selectedDayTextColor;
 
         this.disabledDayTextColor = disabledDayTextColor;
         this.disabledDayBackgroundColor = disabledDayBackgroundColor;
+        initializeCalendar();
     }
 
     private void getAttributes() {
