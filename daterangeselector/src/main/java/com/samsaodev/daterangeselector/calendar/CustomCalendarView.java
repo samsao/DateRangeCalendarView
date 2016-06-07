@@ -115,9 +115,24 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
                 return;
         }
 
-        getAttributes();
-
+//        getAttributes();
         initializeCalendar();
+    }
+
+
+    public void setAttributes(int calendarBackgroundColor, int calendarTitleBackgroundColor, int calendarTitleTextColor, int weekTitleBackgroundColor, int dayOfWeekTextColor, int disabledDayBackgroundColor, int disabledDayTextColor, int selectedDayBackground, int selectedDayTextColor) {
+        this.calendarBackgroundColor = calendarBackgroundColor;
+        this.calendarTitleBackgroundColor = calendarTitleBackgroundColor;
+        this.calendarTitleTextColor = calendarTitleTextColor;
+
+        this.weekTitleBackgroundColor = weekTitleBackgroundColor;
+        this.dayOfWeekTitleTextColor = dayOfWeekTextColor;
+        this.dayOfWeekTextColor = dayOfWeekTextColor;
+        this.selectedDayBackground = selectedDayBackground;
+        this.selectedDayTextColor = selectedDayTextColor;
+
+        this.disabledDayTextColor = disabledDayTextColor;
+        this.disabledDayBackgroundColor = disabledDayBackgroundColor;
     }
 
     private void getAttributes() {
@@ -125,6 +140,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
         calendarTitleBackgroundColor = ContextCompat.getColor(getContext(), R.color.white);
         calendarTitleTextColor = ContextCompat.getColor(getContext(), R.color.theme_green_grass); //Sun, Mon...
         weekTitleBackgroundColor = ContextCompat.getColor(getContext(), R.color.white);
+
         dayOfWeekTitleTextColor = ContextCompat.getColor(getContext(), R.color.theme_green_grass);
         dayOfWeekTextColor = ContextCompat.getColor(getContext(), R.color.theme_gray_text);
         selectedDayBackground = ContextCompat.getColor(getContext(), R.color.theme_green_lime);
@@ -752,4 +768,5 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
             setupSelectionInStartMonth();
         }
     }
+
 }

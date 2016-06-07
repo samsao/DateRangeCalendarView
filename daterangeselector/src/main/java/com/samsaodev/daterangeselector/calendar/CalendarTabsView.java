@@ -1,7 +1,9 @@
 package com.samsaodev.daterangeselector.calendar;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,23 +76,25 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
     public CalendarTabsView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
+        getAttributes(attrs);
     }
 
     public CalendarTabsView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
+        getAttributes(attrs);
     }
 
     private void init(Context context) {
         final LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflate.inflate(R.layout.calendar_tabs_view, this, true);
+        mCustomCalendarView = (CustomCalendarView) view.findViewById(R.id.calendar_view);
         mStartLayout = (LinearLayout) view.findViewById(R.id.calendar_tabs_view_start_layout);
         mStartLabel = (TextView) view.findViewById(R.id.calendar_tabs_view_start_title);
         mStartDateText = (TextView) view.findViewById(R.id.calendar_tabs_view_start_date);
         mEndLayout = (LinearLayout) view.findViewById(R.id.calendar_tabs_view_end_layout);
         mEndLabel = (TextView) view.findViewById(R.id.calendar_tabs_view_end_title);
         mEndDateText = (TextView) view.findViewById(R.id.calendar_tabs_view_end_date);
-        mCustomCalendarView = (CustomCalendarView) view.findViewById(R.id.calendar_view);
         mStartLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,6 +108,21 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
             }
         });
         setupCalendarView();
+    }
+
+    private void getAttributes(AttributeSet attrs) {
+        final TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.CalendarTabsView, 0, 0);
+        int calendarBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_gray_light)); //non-selected week day bg color
+        int calendarTitleBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_titleLayoutBackgroundColor, ContextCompat.getColor(getContext(), R.color.white));
+        int calendarTitleTextColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarTitleTextColor, ContextCompat.getColor(getContext(), R.color.theme_green_grass)); //Sun, Mon...
+        int weekTitleBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_weekTitleBackgroundColor, ContextCompat.getColor(getContext(), R.color.white));
+        int dayOfWeekTextColor = typedArray.getColor(R.styleable.CalendarTabsView_dayOfWeekTextColor, ContextCompat.getColor(getContext(), R.color.theme_gray_text));
+        int disabledDayBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_disabledDayBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_gray_light));
+        int disabledDayTextColor = typedArray.getColor(R.styleable.CalendarTabsView_disabledDayTextColor, ContextCompat.getColor(getContext(), R.color.theme_gray_text_lighter_alpha));
+        int selectedDayBackground = typedArray.getColor(R.styleable.CalendarTabsView_selectedDayBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_green_lime));
+        int selectedDayTextColor = typedArray.getColor(R.styleable.CalendarTabsView_selectedDayTextColor, ContextCompat.getColor(getContext(), R.color.white));
+        typedArray.recycle();
+        mCustomCalendarView.setAttributes(calendarBackgroundColor, calendarTitleBackgroundColor, calendarTitleTextColor, weekTitleBackgroundColor, dayOfWeekTextColor, disabledDayBackgroundColor, disabledDayTextColor, selectedDayBackground, selectedDayTextColor);
     }
 
     private void setupCalendarView() {
