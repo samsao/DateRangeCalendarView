@@ -50,18 +50,18 @@
         android:id="@+id/calendar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/quadruple_spacing"/>
+        android:layout_marginTop="@dimen/triple_spacing"/>
 
     <!--<Button-->
-        <!--android:id="@+id/calendar_tabs_view_apply_filter"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginBottom="@dimen/double_spacing"-->
-        <!--android:layout_marginLeft="@dimen/triple_spacing"-->
-        <!--android:layout_marginRight="@dimen/triple_spacing"-->
-        <!--android:layout_marginTop="@dimen/octuple_spacing"-->
-        <!--android:background="@drawable/sel_main_button_light_green"-->
-        <!--android:text="Done"-->
-        <!--android:textAllCaps="false"-->
-        <!--android:textColor="@color/theme_green_grass"/>-->
+    <!--android:id="@+id/calendar_tabs_view_apply_filter"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="@dimen/double_spacing"-->
+    <!--android:layout_marginLeft="@dimen/triple_spacing"-->
+    <!--android:layout_marginRight="@dimen/triple_spacing"-->
+    <!--android:layout_marginTop="@dimen/octuple_spacing"-->
+    <!--android:background="@drawable/button_green"-->
+    <!--android:text="Done"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="@color/theme_green_grass"/>-->
 </LinearLayout>

@@ -130,7 +130,6 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 mCalendarTabsView.reset();
                 mCalendarTabsView.setupSelectedDates(startDate1, endDate1);
-                mCalendarTabsView.scrollToStartMonth(startDate1); //this method is called when start date and end date are in the same month
             }
         });
 
@@ -139,7 +138,6 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 mCalendarTabsView.reset();
                 mCalendarTabsView.setupSelectedDates(startDate2, endDate2);
-                mCalendarTabsView.scrollToStartMonth();  //this method is called when start date and end date are not in the same month
             }
         });
     }

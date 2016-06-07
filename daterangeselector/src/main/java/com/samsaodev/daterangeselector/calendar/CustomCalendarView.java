@@ -734,8 +734,8 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
                     currentCalendar = Calendar.getInstance(Locale.getDefault());
                     currentCalendar.add(Calendar.MONTH, currentMonthIndex);
                     refreshCalendar(currentCalendar);
-                    setupSelectionInStartMonth();
                 }
+                setupSelectionInStartMonth();
             }
         }
     }
