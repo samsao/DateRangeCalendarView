@@ -117,19 +117,19 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
     }
 
 
-    public void setAttributes(int calendarBackgroundColor, int calendarTitleBackgroundColor, int calendarTitleTextColor, int weekTitleBackgroundColor, int dayOfWeekTextColor, int disabledDayBackgroundColor, int disabledDayTextColor, int selectedDayBackground, int selectedDayTextColor) {
-        this.calendarBackgroundColor = calendarBackgroundColor;
+    public void setAttributes(int calendarBackgroundColor, int calendarTitleBackgroundColor, int calendarTitleTextColor, int weekTitleBackgroundColor, int dayOfWeekTextColor, int daysInBetweenTextColor, int disabledDayBackgroundColor, int disabledDayTextColor, int selectedDayBackground, int selectedDayTextColor) {
+        this.calendarBackgroundColor = calendarBackgroundColor; //non-selected week day bg color
         this.calendarTitleBackgroundColor = calendarTitleBackgroundColor;
-        this.calendarTitleTextColor = calendarTitleTextColor;
+        this.calendarTitleTextColor = calendarTitleTextColor; //Sun, Mon...
 
         this.weekTitleBackgroundColor = weekTitleBackgroundColor;
         this.dayOfWeekTitleTextColor = dayOfWeekTextColor;
-        this.daysInBetweenTextColor = dayOfWeekTextColor;
+        this.daysInBetweenTextColor = daysInBetweenTextColor;
         this.selectedDayBackground = selectedDayBackground;
         this.selectedDayTextColor = selectedDayTextColor;
 
-        this.disabledDayTextColor = disabledDayTextColor;
-        this.disabledDayBackgroundColor = disabledDayBackgroundColor;
+        this.disabledDayTextColor = disabledDayTextColor; //disabled day text color
+        this.disabledDayBackgroundColor = disabledDayBackgroundColor; //disabled day background color
         initializeCalendar();
     }
 

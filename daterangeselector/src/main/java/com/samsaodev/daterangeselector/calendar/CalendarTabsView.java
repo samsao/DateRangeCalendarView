@@ -112,17 +112,29 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
 
     private void getAttributes(AttributeSet attrs) {
         final TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.CalendarTabsView, 0, 0);
-        int calendarBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_gray_light)); //non-selected week day bg color
-        int calendarTitleBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_titleLayoutBackgroundColor, ContextCompat.getColor(getContext(), R.color.white));
-        int calendarTitleTextColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarTitleTextColor, ContextCompat.getColor(getContext(), R.color.theme_green_grass)); //Sun, Mon...
+        //non-selected week day bg color
+        int calendarBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_gray_light));
+        //date title (Jun 2016) background color
+        int calendarTitleBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarTitleBackgroundColor, ContextCompat.getColor(getContext(), R.color.white));
+        //date title (Jun 2016) text color
+        int calendarTitleTextColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarTitleTextColor, ContextCompat.getColor(getContext(), R.color.theme_green_grass));
+        //Weekday title background color (S, M, T, W, T, F, S)
         int weekTitleBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_weekTitleBackgroundColor, ContextCompat.getColor(getContext(), R.color.white));
+        //Weekday title text color (S, M, T, W, T, F, S)
         int dayOfWeekTextColor = typedArray.getColor(R.styleable.CalendarTabsView_dayOfWeekTextColor, ContextCompat.getColor(getContext(), R.color.theme_gray_text));
+        //days in between start date and end date text color
+        int daysInBetweenTextColor = typedArray.getColor(R.styleable.CalendarTabsView_daysInBetweenTextColor, ContextCompat.getColor(getContext(), R.color.theme_green_gray));
+        //disabled day background color (at the beginning and at the end of a month)
         int disabledDayBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_disabledDayBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_gray_light));
+        //disabled day text color (at the beginning and at the end of a month)
         int disabledDayTextColor = typedArray.getColor(R.styleable.CalendarTabsView_disabledDayTextColor, ContextCompat.getColor(getContext(), R.color.theme_gray_text_lighter_alpha));
+        //selected day background color (start date and end date)
         int selectedDayBackground = typedArray.getColor(R.styleable.CalendarTabsView_selectedDayBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_green_lime));
+        //selected day text color (start date and end date)
         int selectedDayTextColor = typedArray.getColor(R.styleable.CalendarTabsView_selectedDayTextColor, ContextCompat.getColor(getContext(), R.color.white));
         typedArray.recycle();
-        mCustomCalendarView.setAttributes(calendarBackgroundColor, calendarTitleBackgroundColor, calendarTitleTextColor, weekTitleBackgroundColor, dayOfWeekTextColor, disabledDayBackgroundColor, disabledDayTextColor, selectedDayBackground, selectedDayTextColor);
+
+        mCustomCalendarView.setAttributes(calendarBackgroundColor, calendarTitleBackgroundColor, calendarTitleTextColor, weekTitleBackgroundColor, dayOfWeekTextColor, daysInBetweenTextColor, disabledDayBackgroundColor, disabledDayTextColor, selectedDayBackground, selectedDayTextColor);
     }
 
     private void setupCalendarView() {
