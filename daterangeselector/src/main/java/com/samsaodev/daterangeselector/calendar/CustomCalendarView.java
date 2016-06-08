@@ -727,15 +727,25 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
         if (mStartDate != null && mEndDate != null) {
             int startMonth = DateUtils.getMonth(mStartDate);
             int endMonth = DateUtils.getMonth(mEndDate);
+            int startYear = DateUtils.getYear(mStartDate);
+            int currentMonth = DateUtils.getMonth(currentCalendar.getTime());
+            int currentYear = DateUtils.getYear(currentCalendar.getTime());
             if (startMonth != endMonth) {
-                int currentMonth = DateUtils.getMonth(currentCalendar.getTime());
-                if (DateUtils.getMonth(mStartDate) != currentMonth) {
-                    currentMonthIndex -= currentMonth - startMonth;
+                if (startYear == currentYear) {
+                    if (DateUtils.getMonth(mStartDate) != currentMonth) {
+                        currentMonthIndex -= currentMonth - startMonth;
+                        currentCalendar = Calendar.getInstance(Locale.getDefault());
+                        currentCalendar.add(Calendar.MONTH, currentMonthIndex);
+                        refreshCalendar(currentCalendar);
+                    }
+                    setupSelectionInStartMonth();
+                } else {
+                    //// TODO: 2016-06-08 it's working but needs to be improved
                     currentCalendar = Calendar.getInstance(Locale.getDefault());
-                    currentCalendar.add(Calendar.MONTH, currentMonthIndex);
+                    currentCalendar.setTime(mStartDate);
                     refreshCalendar(currentCalendar);
+                    setupSelectionInStartMonth();
                 }
-                setupSelectionInStartMonth();
             }
         }
     }
