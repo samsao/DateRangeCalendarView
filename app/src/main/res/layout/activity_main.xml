@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:background="@color/white"
-                  android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
 
         <com.samsaodev.daterangeselector.calendar.CalendarTabsView
             android:id="@+id/activity_main_calendar_tabs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+        <!--<com.samsaodev.daterangeselector.calendar.CalendarTabsView-->
+        <!--android:id="@+id/activity_main_calendar_tabs"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:calendarBackgroundColor="@android:color/black"-->
+        <!--app:calendarTitleTextColor="@android:color/black"-->
+        <!--app:dayOfWeekTextColor="@color/colorAccent"-->
+        <!--app:currentMonthDaysTextColor="@color/colorPrimaryDark"-->
+        <!--app:daysInBetweenBackgroundColor="@android:color/darker_gray"-->
+        <!--app:disabledDayBackgroundColor="@android:color/black"-->
+        <!--app:disabledDayTextColor="@color/colorPrimary"-->
+        <!--app:selectedDayBackgroundColor="@android:color/white"-->
+        <!--app:selectedDayTextColor="@color/colorAccent"/>-->
 
         <LinearLayout
             android:layout_width="match_parent"

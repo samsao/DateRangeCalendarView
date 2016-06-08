@@ -52,8 +52,8 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
     private int disabledDayTextColor;
     private int calendarBackgroundColor;
     private int selectedDayBackground;
-    private int weekTitleBackgroundColor;
-    private int calendarTitleBackgroundColor;
+//    private int weekTitleBackgroundColor;
+//    private int calendarTitleBackgroundColor;
     private int selectedDayTextColor;
     private int calendarTitleTextColor;
     private int dayOfWeekTitleTextColor;
@@ -116,12 +116,10 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
         }
     }
 
-    public void setAttributes(int calendarBackgroundColor, int calendarTitleBackgroundColor, int calendarTitleTextColor, int weekTitleBackgroundColor, int dayOfWeekTextColor, int currentMonthDaysTextColor, int daysInBetweenBackgroundColor, int disabledDayBackgroundColor, int disabledDayTextColor, int selectedDayBackground, int selectedDayTextColor) {
+    public void setAttributes(int calendarBackgroundColor, int calendarTitleTextColor, int dayOfWeekTextColor, int currentMonthDaysTextColor, int daysInBetweenBackgroundColor, int disabledDayBackgroundColor, int disabledDayTextColor, int selectedDayBackground, int selectedDayTextColor) {
         this.calendarBackgroundColor = calendarBackgroundColor;
-        this.calendarTitleBackgroundColor = calendarTitleBackgroundColor;
         this.calendarTitleTextColor = calendarTitleTextColor;
 
-        this.weekTitleBackgroundColor = weekTitleBackgroundColor;
         this.dayOfWeekTitleTextColor = dayOfWeekTextColor;
         this.currentMonthDaysTextColor = currentMonthDaysTextColor;
         this.daysInBetweenBackgroundColor = daysInBetweenBackgroundColor;
@@ -236,7 +234,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
      */
     private void initializeTitleLayout() {
         View titleLayout = view.findViewById(R.id.titleLayout);
-        titleLayout.setBackgroundColor(calendarTitleBackgroundColor);
+//        titleLayout.setBackgroundColor(calendarTitleBackgroundColor);
 
         String dateText = new DateFormatSymbols(locale).getShortMonths()[currentCalendar.get(Calendar.MONTH)].toString();
         dateText = dateText.substring(0, 1).toUpperCase() + dateText.subSequence(1, dateText.length());
@@ -257,7 +255,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
 
         //Setting background color white
         View titleLayout = view.findViewById(R.id.weekLayout);
-        titleLayout.setBackgroundColor(weekTitleBackgroundColor);
+//        titleLayout.setBackgroundColor(weekTitleBackgroundColor);
 
         final String[] weekDaysArray = new DateFormatSymbols(locale).getShortWeekdays();
         for (int i = 1; i < weekDaysArray.length; i++) {

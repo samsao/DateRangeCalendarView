@@ -4,11 +4,7 @@
     <declare-styleable name="CalendarTabsView">
         <attr name="calendarTitleTextColor" format="color"/>
         <attr name="calendarBackgroundColor" format="color"/>
-        <attr name="calendarTitleBackgroundColor" format="color"/>
-
-        <attr name="weekTitleBackgroundColor" format="color"/>
         <attr name="dayOfWeekTextColor" format="color"/>
-
         <attr name="currentMonthDaysTextColor" format="color"/>
         <attr name="daysInBetweenBackgroundColor" format="color"/>
         <attr name="disabledDayBackgroundColor" format="color"/>

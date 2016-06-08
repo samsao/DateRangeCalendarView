@@ -114,12 +114,8 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
         final TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.CalendarTabsView, 0, 0);
         //non-selected week day bg color
         int calendarBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_gray_light));
-        //date title (Jun 2016) background color
-        int calendarTitleBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarTitleBackgroundColor, ContextCompat.getColor(getContext(), R.color.white));
         //date title (Jun 2016) text color
         int calendarTitleTextColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarTitleTextColor, ContextCompat.getColor(getContext(), R.color.theme_green_grass));
-        //Weekday title background color (S, M, T, W, T, F, S)
-        int weekTitleBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_weekTitleBackgroundColor, ContextCompat.getColor(getContext(), R.color.white));
         //Weekday title text color (S, M, T, W, T, F, S)
         int dayOfWeekTextColor = typedArray.getColor(R.styleable.CalendarTabsView_dayOfWeekTextColor, ContextCompat.getColor(getContext(), R.color.theme_gray_text));
         //current month days text color
@@ -136,7 +132,7 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
         int selectedDayTextColor = typedArray.getColor(R.styleable.CalendarTabsView_selectedDayTextColor, ContextCompat.getColor(getContext(), R.color.white));
         typedArray.recycle();
 
-        mCustomCalendarView.setAttributes(calendarBackgroundColor, calendarTitleBackgroundColor, calendarTitleTextColor, weekTitleBackgroundColor, dayOfWeekTextColor, currentMonthDaysTextColor, daysInBetweenBackgroundColor, disabledDayBackgroundColor, disabledDayTextColor, selectedDayBackground, selectedDayTextColor);
+        mCustomCalendarView.setAttributes(calendarBackgroundColor, calendarTitleTextColor, dayOfWeekTextColor, currentMonthDaysTextColor, daysInBetweenBackgroundColor, disabledDayBackgroundColor, disabledDayTextColor, selectedDayBackground, selectedDayTextColor);
     }
 
     private void setupCalendarView() {
