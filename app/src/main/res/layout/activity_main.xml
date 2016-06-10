@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:background="@color/white"
-                  android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
 
         <com.samsaodev.daterangeselector.calendar.CalendarTabsView
-            android:id="@+id/activity_main_calendar_tabs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        android:id="@+id/activity_main_calendar_tabs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+        <!--<com.samsaodev.daterangeselector.calendar.CalendarTabsView-->
+            <!--android:id="@+id/activity_main_calendar_tabs"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:calendarTitleTextColor="@android:color/black"-->
+            <!--app:dayOfWeekTextColor="@color/colorAccent"-->
+            <!--app:daysInBetweenBackgroundColor="@color/theme_pink"-->
+            <!--app:selectedDayBackgroundColor="@color/colorAccent"-->
+            <!--app:selectedDayTextColor="@android:color/white"/>-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/double_spacing"
             android:orientation="horizontal"
-            android:padding="@dimen/double_spacing">
+            android:paddingBottom="@dimen/spacing"
+            android:paddingLeft="@dimen/double_spacing"
+            android:paddingRight="@dimen/double_spacing">
 
             <Button
                 android:id="@+id/activity_main_btn_reset"
@@ -29,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/double_spacing"
                 android:layout_weight="1"
-                android:background="@drawable/sel_main_button_light_green"
+                android:background="@drawable/button_green"
                 android:text="Reset"
                 android:textColor="@color/theme_gray_text"/>
 
@@ -38,7 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/sel_main_button_light_green"
+                android:background="@drawable/button_green"
                 android:text="Done"
                 android:textColor="@color/theme_gray_text"/>
         </LinearLayout>
@@ -50,7 +63,7 @@
             android:layout_marginBottom="@dimen/spacing"
             android:layout_marginLeft="@dimen/double_spacing"
             android:layout_marginRight="@dimen/double_spacing"
-            android:background="@drawable/sel_main_button_light_green"
+            android:background="@drawable/button_green"
             android:textAllCaps="false"
             android:textColor="@color/theme_gray_text"/>
 
@@ -60,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/double_spacing"
             android:layout_marginRight="@dimen/double_spacing"
-            android:background="@drawable/sel_main_button_light_green"
+            android:background="@drawable/button_green"
             android:textAllCaps="false"
             android:textColor="@color/theme_gray_text"/>
     </LinearLayout>

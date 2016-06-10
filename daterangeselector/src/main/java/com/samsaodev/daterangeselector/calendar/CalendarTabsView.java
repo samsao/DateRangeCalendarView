@@ -1,7 +1,9 @@
 package com.samsaodev.daterangeselector.calendar;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +50,8 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
 
     public void setDefaultDateText(String defaultDate) {
         mDefaultDateString = defaultDate;
+        setStartDateUnselectedText(mDefaultDateString);
+        setEndDateUnselectedText(mDefaultDateString);
     }
 
     public Date getStartDate() {
@@ -74,11 +78,13 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
     public CalendarTabsView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
+        getAttributes(attrs);
     }
 
     public CalendarTabsView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
+        getAttributes(attrs);
     }
 
     private void init(Context context) {
@@ -90,7 +96,6 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
         mEndLayout = (LinearLayout) view.findViewById(R.id.calendar_tabs_view_end_layout);
         mEndLabel = (TextView) view.findViewById(R.id.calendar_tabs_view_end_title);
         mEndDateText = (TextView) view.findViewById(R.id.calendar_tabs_view_end_date);
-        mCustomCalendarView = (CustomCalendarView) view.findViewById(R.id.calendar_view);
         mStartLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +108,33 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
                 setupEndTabSelected();
             }
         });
+        mCustomCalendarView = (CustomCalendarView) view.findViewById(R.id.calendar_view);
         setupCalendarView();
+    }
+
+    private void getAttributes(AttributeSet attrs) {
+        final TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.CalendarTabsView, 0, 0);
+        //non-selected week day bg color
+        int calendarBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_gray_light));
+        //date title (Jun 2016) text color
+        int calendarTitleTextColor = typedArray.getColor(R.styleable.CalendarTabsView_calendarTitleTextColor, ContextCompat.getColor(getContext(), R.color.theme_green_grass));
+        //Weekday title text color (S, M, T, W, T, F, S)
+        int dayOfWeekTextColor = typedArray.getColor(R.styleable.CalendarTabsView_dayOfWeekTextColor, ContextCompat.getColor(getContext(), R.color.theme_gray_text));
+        //current month days text color
+        int currentMonthDaysTextColor = typedArray.getColor(R.styleable.CalendarTabsView_currentMonthDaysTextColor, ContextCompat.getColor(getContext(), R.color.theme_gray_text));
+
+        int daysInBetweenBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_daysInBetweenBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_green_gray));
+        //disabled day background color (days not in the current month)
+        int disabledDayBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_disabledDayBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_gray_light));
+        //disabled day text color (days not in the current month)
+        int disabledDayTextColor = typedArray.getColor(R.styleable.CalendarTabsView_disabledDayTextColor, ContextCompat.getColor(getContext(), R.color.theme_gray_text_lighter_alpha));
+        //selected day background color (start date and end date)
+        int selectedDayBackground = typedArray.getColor(R.styleable.CalendarTabsView_selectedDayBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_green_lime));
+        //selected day text color (start date and end date)
+        int selectedDayTextColor = typedArray.getColor(R.styleable.CalendarTabsView_selectedDayTextColor, ContextCompat.getColor(getContext(), R.color.white));
+        typedArray.recycle();
+
+        mCustomCalendarView.setAttributes(calendarBackgroundColor, calendarTitleTextColor, dayOfWeekTextColor, currentMonthDaysTextColor, daysInBetweenBackgroundColor, disabledDayBackgroundColor, disabledDayTextColor, selectedDayBackground, selectedDayTextColor);
     }
 
     private void setupCalendarView() {
@@ -111,8 +142,6 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
         mCustomCalendarView.setStart(true);
         mStartDateText.setTextColor(mStartDateSelectedColor);
         mEndDateText.setTextColor(mEndDateSelectedColor);
-        setStartDateUnselectedText(mDefaultDateString);
-        setEndDateUnselectedText(mDefaultDateString);
     }
 
     public void setStartDateUnselectedColor(int startDateUnselectedColor) {
@@ -175,10 +204,12 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
 
     public void setStartDateUnselectedText(String text) {
         mStartDateText.setText(text);
+        mStartDateText.setTextColor(mStartDateUnselectedColor);
     }
 
     public void setEndDateUnselectedText(String text) {
         mEndDateText.setText(text);
+        mEndDateText.setTextColor(mEndDateUnselectedColor);
     }
 
     private void setupStartDateText(String startDate) {
@@ -246,6 +277,7 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
      * Scroll calendar to start month if start date and end date are in the same month
      */
     public void scrollToStartMonth(Date startDate) {
+        mStartDate = startDate;
         mCustomCalendarView.scrollToStartMonth(startDate);
     }
 

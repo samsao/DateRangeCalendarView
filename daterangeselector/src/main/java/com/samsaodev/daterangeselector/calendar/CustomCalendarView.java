@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -53,12 +52,13 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
     private int disabledDayTextColor;
     private int calendarBackgroundColor;
     private int selectedDayBackground;
-    private int weekTitleBackgroundColor;
-    private int calendarTitleBackgroundColor;
+//    private int weekTitleBackgroundColor;
+//    private int calendarTitleBackgroundColor;
     private int selectedDayTextColor;
     private int calendarTitleTextColor;
     private int dayOfWeekTitleTextColor;
-    private int dayOfWeekTextColor;
+    private int currentMonthDaysTextColor;
+    private int daysInBetweenBackgroundColor;
 
     private int currentMonthIndex = 0;
     private boolean isOverflowDateVisible = true;
@@ -114,23 +114,22 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
             if (isInEditMode())
                 return;
         }
-
-        getAttributes();
-
-        initializeCalendar();
     }
 
-    private void getAttributes() {
-        calendarBackgroundColor = ContextCompat.getColor(getContext(), R.color.theme_gray_light); //non-selected week day bg color
-        calendarTitleBackgroundColor = ContextCompat.getColor(getContext(), R.color.white);
-        calendarTitleTextColor = ContextCompat.getColor(getContext(), R.color.theme_green_grass); //Sun, Mon...
-        weekTitleBackgroundColor = ContextCompat.getColor(getContext(), R.color.white);
-        dayOfWeekTitleTextColor = ContextCompat.getColor(getContext(), R.color.theme_green_grass);
-        dayOfWeekTextColor = ContextCompat.getColor(getContext(), R.color.theme_gray_text);
-        selectedDayBackground = ContextCompat.getColor(getContext(), R.color.theme_green_lime);
-        selectedDayTextColor = ContextCompat.getColor(getContext(), R.color.white);
-        disabledDayTextColor = ContextCompat.getColor(getContext(), R.color.theme_gray_text_lighter_alpha);
-        disabledDayBackgroundColor = ContextCompat.getColor(getContext(), R.color.theme_gray_light);
+    public void setAttributes(int calendarBackgroundColor, int calendarTitleTextColor, int dayOfWeekTextColor, int currentMonthDaysTextColor, int daysInBetweenBackgroundColor, int disabledDayBackgroundColor, int disabledDayTextColor, int selectedDayBackground, int selectedDayTextColor) {
+        this.calendarBackgroundColor = calendarBackgroundColor;
+        this.calendarTitleTextColor = calendarTitleTextColor;
+
+        this.dayOfWeekTitleTextColor = dayOfWeekTextColor;
+        this.currentMonthDaysTextColor = currentMonthDaysTextColor;
+        this.daysInBetweenBackgroundColor = daysInBetweenBackgroundColor;
+
+        this.selectedDayBackground = selectedDayBackground;
+        this.selectedDayTextColor = selectedDayTextColor;
+
+        this.disabledDayTextColor = disabledDayTextColor;
+        this.disabledDayBackgroundColor = disabledDayBackgroundColor;
+        initializeCalendar();
     }
 
     private void initializeCalendar() {
@@ -177,7 +176,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
             int endMonth = DateUtils.getMonth(mEndDate);
             if (startYear == endYear) {
                 if (currentMonth < endMonth && currentMonth > startMonth) {
-                    selectAllDaysInAMonth();
+                    selectDaysInBetweenInAMonth();
                 } else if (currentMonth == endMonth && currentMonth != startMonth) {
                     setupSelectionInEndMonth();
                 } else if (currentMonth == startMonth && currentMonth != endMonth) {
@@ -190,13 +189,13 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
                     if (currentMonth == endMonth) {
                         setupSelectionInEndMonth();
                     } else if (currentMonth < endMonth) {
-                        selectAllDaysInAMonth();
+                        selectDaysInBetweenInAMonth();
                     }
                 } else if (currentYear < endYear && currentYear > startYear) {
-                    selectAllDaysInAMonth();
+                    selectDaysInBetweenInAMonth();
                 } else if (currentYear == startYear) {
                     if (currentMonth > startMonth) {
-                        selectAllDaysInAMonth();
+                        selectDaysInBetweenInAMonth();
                     } else if (currentMonth == startMonth) {
                         setupSelectionInStartMonth();
                     }
@@ -205,12 +204,12 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
         }
     }
 
-    private void selectAllDaysInAMonth() {
+    private void selectDaysInBetweenInAMonth() {
         int index = 0;
         while (++index <= 35) {
             TextView textView = (TextView) view.findViewWithTag(DAY_OF_MONTH_TEXT + index);
-            textView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.theme_green_gray));
-            textView.setTextColor(dayOfWeekTextColor);
+            textView.setBackgroundColor(daysInBetweenBackgroundColor);
+            textView.setTextColor(currentMonthDaysTextColor);
         }
     }
 
@@ -224,8 +223,8 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
         startTextView.setTextColor(selectedDayTextColor);
         while (++index <= 35) {
             TextView textView = (TextView) view.findViewWithTag(DAY_OF_MONTH_TEXT + index);
-            textView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.theme_green_gray));
-            textView.setTextColor(dayOfWeekTextColor);
+            textView.setBackgroundColor(daysInBetweenBackgroundColor);
+            textView.setTextColor(currentMonthDaysTextColor);
         }
     }
 
@@ -235,7 +234,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
      */
     private void initializeTitleLayout() {
         View titleLayout = view.findViewById(R.id.titleLayout);
-        titleLayout.setBackgroundColor(calendarTitleBackgroundColor);
+//        titleLayout.setBackgroundColor(calendarTitleBackgroundColor);
 
         String dateText = new DateFormatSymbols(locale).getShortMonths()[currentCalendar.get(Calendar.MONTH)].toString();
         dateText = dateText.substring(0, 1).toUpperCase() + dateText.subSequence(1, dateText.length());
@@ -256,7 +255,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
 
         //Setting background color white
         View titleLayout = view.findViewById(R.id.weekLayout);
-        titleLayout.setBackgroundColor(weekTitleBackgroundColor);
+//        titleLayout.setBackgroundColor(weekTitleBackgroundColor);
 
         final String[] weekDaysArray = new DateFormatSymbols(locale).getShortWeekdays();
         for (int i = 1; i < weekDaysArray.length; i++) {
@@ -301,7 +300,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
             if (isSameMonth(calendar, startCalendar)) {
                 dayOfMonthContainer.setOnClickListener(onDayOfMonthClickListener);
                 dayView.setBackgroundColor(calendarBackgroundColor);
-                dayView.setTextColor(dayOfWeekTextColor);
+                dayView.setTextColor(currentMonthDaysTextColor);
             } else {
                 dayView.setBackgroundColor(disabledDayBackgroundColor);
                 dayView.setTextColor(disabledDayTextColor);
@@ -432,9 +431,10 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
         mEndTagId = String.valueOf(getDayIndexByDate(currentCalendar));
 
         if (DateUtils.getMonth(mStartDate) == DateUtils.getMonth(mEndDate)) {
+            scrollToStartMonth(mStartDate);
             setupStartAndEndInSameMonth();
         } else {
-            setupSelectionInStartMonth();
+            scrollToStartMonth();
         }
     }
 
@@ -658,8 +658,8 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
         endTextView.setTextColor(selectedDayTextColor);
         while (--index > 0) {
             TextView textView = (TextView) view.findViewWithTag(DAY_OF_MONTH_TEXT + index);
-            textView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.theme_green_gray));
-            textView.setTextColor(dayOfWeekTextColor);
+            textView.setBackgroundColor(daysInBetweenBackgroundColor);
+            textView.setTextColor(currentMonthDaysTextColor);
         }
     }
 
@@ -669,7 +669,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
         for (int i = start; i <= end; i++) {
             TextView textView = (TextView) view.findViewWithTag(DAY_OF_MONTH_TEXT + i);
             textView.setBackgroundColor(calendarBackgroundColor);
-            textView.setTextColor(dayOfWeekTextColor);
+            textView.setTextColor(currentMonthDaysTextColor);
         }
     }
 
@@ -684,9 +684,9 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
         int end = Integer.parseInt(mEndTagId);
         while (++index < end) {
             TextView textView = (TextView) view.findViewWithTag(DAY_OF_MONTH_TEXT + index);
-            textView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.theme_green_gray));
+            textView.setBackgroundColor(daysInBetweenBackgroundColor);
             if (textView.getCurrentTextColor() == selectedDayTextColor) {
-                textView.setTextColor(dayOfWeekTextColor);
+                textView.setTextColor(currentMonthDaysTextColor);
             }
         }
         TextView endView = (TextView) view.findViewWithTag(DAY_OF_MONTH_TEXT + mEndTagId);
@@ -719,18 +719,28 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
     }
 
     /**
-     * Scroll calendar to the start month when switch to start tab
+     * Scroll calendar to the start month when switch to start tab if start date and end date are not in the same month
      */
     public void scrollToStartMonth() {
         if (mStartDate != null && mEndDate != null) {
             int startMonth = DateUtils.getMonth(mStartDate);
             int endMonth = DateUtils.getMonth(mEndDate);
+            int startYear = DateUtils.getYear(mStartDate);
+            int currentMonth = DateUtils.getMonth(currentCalendar.getTime());
+            int currentYear = DateUtils.getYear(currentCalendar.getTime());
             if (startMonth != endMonth) {
-                int currentMonth = DateUtils.getMonth(currentCalendar.getTime());
-                if (DateUtils.getMonth(mStartDate) != currentMonth) {
-                    currentMonthIndex -= currentMonth - startMonth;
+                if (startYear == currentYear) {
+                    if (DateUtils.getMonth(mStartDate) != currentMonth) {
+                        currentMonthIndex -= currentMonth - startMonth;
+                        currentCalendar = Calendar.getInstance(Locale.getDefault());
+                        currentCalendar.add(Calendar.MONTH, currentMonthIndex);
+                        refreshCalendar(currentCalendar);
+                    }
+                    setupSelectionInStartMonth();
+                } else {
+                    //// TODO: 2016-06-08 it's working but needs to be improved
                     currentCalendar = Calendar.getInstance(Locale.getDefault());
-                    currentCalendar.add(Calendar.MONTH, currentMonthIndex);
+                    currentCalendar.setTime(mStartDate);
                     refreshCalendar(currentCalendar);
                     setupSelectionInStartMonth();
                 }
@@ -739,7 +749,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
     }
 
     /**
-     * Scroll calendar to the start month with a given start date and end date
+     * Scroll calendar to start month if start date and end date are in the same month
      */
     public void scrollToStartMonth(Date startDate) {
         int startMonth = DateUtils.getMonth(startDate);
@@ -749,7 +759,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
             currentCalendar = Calendar.getInstance(Locale.getDefault());
             currentCalendar.add(Calendar.MONTH, currentMonthIndex);
             refreshCalendar(currentCalendar);
-            setupSelectionInStartMonth();
         }
     }
+
 }
