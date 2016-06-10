@@ -288,6 +288,12 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
         mCustomCalendarView.scrollToStartMonth();
     }
 
+    /**
+     * Is start tab selected
+     */
+    public void isStartTabSelected() {
+        mCustomCalendarView.isStart();
+    }
 
     /**
      * Reset the tabs and calendar
