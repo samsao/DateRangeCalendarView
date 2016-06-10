@@ -50,6 +50,8 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
 
     public void setDefaultDateText(String defaultDate) {
         mDefaultDateString = defaultDate;
+        setStartDateUnselectedText(mDefaultDateString);
+        setEndDateUnselectedText(mDefaultDateString);
     }
 
     public Date getStartDate() {
@@ -88,7 +90,6 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
     private void init(Context context) {
         final LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflate.inflate(R.layout.calendar_tabs_view, this, true);
-        mCustomCalendarView = (CustomCalendarView) view.findViewById(R.id.calendar_view);
         mStartLayout = (LinearLayout) view.findViewById(R.id.calendar_tabs_view_start_layout);
         mStartLabel = (TextView) view.findViewById(R.id.calendar_tabs_view_start_title);
         mStartDateText = (TextView) view.findViewById(R.id.calendar_tabs_view_start_date);
@@ -107,6 +108,7 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
                 setupEndTabSelected();
             }
         });
+        mCustomCalendarView = (CustomCalendarView) view.findViewById(R.id.calendar_view);
         setupCalendarView();
     }
 
@@ -138,8 +140,6 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
     private void setupCalendarView() {
         mCustomCalendarView.setCalendarListener(this);
         mCustomCalendarView.setStart(true);
-        setStartDateUnselectedText(mDefaultDateString);
-        setEndDateUnselectedText(mDefaultDateString);
         mStartDateText.setTextColor(mStartDateSelectedColor);
         mEndDateText.setTextColor(mEndDateSelectedColor);
     }
@@ -204,10 +204,12 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
 
     public void setStartDateUnselectedText(String text) {
         mStartDateText.setText(text);
+        mStartDateText.setTextColor(mStartDateUnselectedColor);
     }
 
     public void setEndDateUnselectedText(String text) {
         mEndDateText.setText(text);
+        mEndDateText.setTextColor(mEndDateUnselectedColor);
     }
 
     private void setupStartDateText(String startDate) {
