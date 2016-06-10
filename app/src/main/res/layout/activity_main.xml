@@ -12,20 +12,20 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <!--<com.samsaodev.daterangeselector.calendar.CalendarTabsView-->
-        <!--android:id="@+id/activity_main_calendar_tabs"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"/>-->
-
         <com.samsaodev.daterangeselector.calendar.CalendarTabsView
-            android:id="@+id/activity_main_calendar_tabs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:calendarTitleTextColor="@android:color/black"
-            app:dayOfWeekTextColor="@color/colorAccent"
-            app:daysInBetweenBackgroundColor="@color/theme_pink"
-            app:selectedDayBackgroundColor="@color/colorAccent"
-            app:selectedDayTextColor="@android:color/white"/>
+        android:id="@+id/activity_main_calendar_tabs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+        <!--<com.samsaodev.daterangeselector.calendar.CalendarTabsView-->
+            <!--android:id="@+id/activity_main_calendar_tabs"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:calendarTitleTextColor="@android:color/black"-->
+            <!--app:dayOfWeekTextColor="@color/colorAccent"-->
+            <!--app:daysInBetweenBackgroundColor="@color/theme_pink"-->
+            <!--app:selectedDayBackgroundColor="@color/colorAccent"-->
+            <!--app:selectedDayTextColor="@android:color/white"/>-->
 
         <LinearLayout
             android:layout_width="match_parent"

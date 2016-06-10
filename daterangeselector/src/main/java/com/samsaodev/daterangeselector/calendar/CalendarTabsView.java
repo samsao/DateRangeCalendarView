@@ -122,9 +122,9 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
         int currentMonthDaysTextColor = typedArray.getColor(R.styleable.CalendarTabsView_currentMonthDaysTextColor, ContextCompat.getColor(getContext(), R.color.theme_gray_text));
 
         int daysInBetweenBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_daysInBetweenBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_green_gray));
-        //disabled day background color (at the beginning and at the end of a month)
+        //disabled day background color (days not in the current month)
         int disabledDayBackgroundColor = typedArray.getColor(R.styleable.CalendarTabsView_disabledDayBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_gray_light));
-        //disabled day text color (at the beginning and at the end of a month)
+        //disabled day text color (days not in the current month)
         int disabledDayTextColor = typedArray.getColor(R.styleable.CalendarTabsView_disabledDayTextColor, ContextCompat.getColor(getContext(), R.color.theme_gray_text_lighter_alpha));
         //selected day background color (start date and end date)
         int selectedDayBackground = typedArray.getColor(R.styleable.CalendarTabsView_selectedDayBackgroundColor, ContextCompat.getColor(getContext(), R.color.theme_green_lime));
@@ -138,10 +138,10 @@ public class CalendarTabsView extends ScrollView implements CalendarListener {
     private void setupCalendarView() {
         mCustomCalendarView.setCalendarListener(this);
         mCustomCalendarView.setStart(true);
-        mStartDateText.setTextColor(mStartDateSelectedColor);
-        mEndDateText.setTextColor(mEndDateSelectedColor);
         setStartDateUnselectedText(mDefaultDateString);
         setEndDateUnselectedText(mDefaultDateString);
+        mStartDateText.setTextColor(mStartDateSelectedColor);
+        mEndDateText.setTextColor(mEndDateSelectedColor);
     }
 
     public void setStartDateUnselectedColor(int startDateUnselectedColor) {
