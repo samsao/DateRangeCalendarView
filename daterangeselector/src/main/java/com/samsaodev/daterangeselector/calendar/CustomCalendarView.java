@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.samsaodev.daterangeselector.R;
 import com.samsaodev.daterangeselector.utils.DateUtils;
@@ -52,8 +53,6 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
     private int disabledDayTextColor;
     private int calendarBackgroundColor;
     private int selectedDayBackground;
-//    private int weekTitleBackgroundColor;
-//    private int calendarTitleBackgroundColor;
     private int selectedDayTextColor;
     private int calendarTitleTextColor;
     private int dayOfWeekTitleTextColor;
@@ -185,6 +184,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
                     setupStartAndEndInSameMonth();
                 }
             } else {
+                //startYear != endYear
                 if (currentYear == endYear) {
                     if (currentMonth == endMonth) {
                         setupSelectionInEndMonth();
@@ -233,7 +233,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
      * Display calendar title with next previous month button
      */
     private void initializeTitleLayout() {
-        View titleLayout = view.findViewById(R.id.titleLayout);
+//        View titleLayout = view.findViewById(R.id.titleLayout);
 //        titleLayout.setBackgroundColor(calendarTitleBackgroundColor);
 
         String dateText = new DateFormatSymbols(locale).getShortMonths()[currentCalendar.get(Calendar.MONTH)].toString();
@@ -254,7 +254,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
         String dayOfTheWeekString;
 
         //Setting background color white
-        View titleLayout = view.findViewById(R.id.weekLayout);
+//        View titleLayout = view.findViewById(R.id.weekLayout);
 //        titleLayout.setBackgroundColor(weekTitleBackgroundColor);
 
         final String[] weekDaysArray = new DateFormatSymbols(locale).getShortWeekdays();
@@ -739,6 +739,7 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
                     setupSelectionInStartMonth();
                 } else {
                     //// TODO: 2016-06-08 it's working but needs to be improved
+                    currentMonthIndex -= currentMonth - startMonth + 12;
                     currentCalendar = Calendar.getInstance(Locale.getDefault());
                     currentCalendar.setTime(mStartDate);
                     refreshCalendar(currentCalendar);
