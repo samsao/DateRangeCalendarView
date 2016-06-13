@@ -738,8 +738,8 @@ public class CustomCalendarView extends LinearLayout implements CalendarTabsView
                     }
                     setupSelectionInStartMonth();
                 } else {
-                    //// TODO: 2016-06-08 it's working but needs to be improved
                     currentMonthIndex -= currentMonth - startMonth + 12;
+                    currentMonthIndex %= 12;
                     currentCalendar = Calendar.getInstance(Locale.getDefault());
                     currentCalendar.setTime(mStartDate);
                     refreshCalendar(currentCalendar);
