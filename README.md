@@ -90,17 +90,11 @@ Then, you might want to setup the CalendarView using some attributes:
 
 * From Jun 16 to Jul 24
 
-![Jun 16 - Jul 24 start](https://github.com/samsao/DateRangeCalendarView/blob/master/screenshots/Jun16_24_start.png?raw=true)
-
-![Jun 16 - Jul 24 end](https://github.com/samsao/DateRangeCalendarView/blob/master/screenshots/Jun16_24_end.png?raw=true)
+![Jun 16 - Jul 24 start](https://github.com/samsao/DateRangeCalendarView/blob/master/screenshots/Jun16_24_start.png?raw=true)![Jun 16 - Jul 24 end](https://github.com/samsao/DateRangeCalendarView/blob/master/screenshots/Jun16_24_end.png?raw=true)
 
 * From Jun 16 to Aug 17
 
-![Jun 16 - Aug 17 start](https://github.com/samsao/DateRangeCalendarView/blob/master/screenshots/Jun16_Aug17_start.png?raw=true)
-
-![Jun 16 - Aug 17 middle](https://github.com/samsao/DateRangeCalendarView/blob/master/screenshots/Jun16_Aug17_middle.png?raw=true)
-
-![Jun 16 - Aug 17 end](https://github.com/samsao/DateRangeCalendarView/blob/master/screenshots/Jun16_Aug17_end.png?raw=true)
+![Jun 16 - Aug 17 start](https://github.com/samsao/DateRangeCalendarView/blob/master/screenshots/Jun16_Aug17_start.png?raw=true)![Jun 16 - Aug 17 middle](https://github.com/samsao/DateRangeCalendarView/blob/master/screenshots/Jun16_Aug17_middle.png?raw=true)![Jun 16 - Aug 17 end](https://github.com/samsao/DateRangeCalendarView/blob/master/screenshots/Jun16_Aug17_end.png?raw=true)
 
 ## Author
 
