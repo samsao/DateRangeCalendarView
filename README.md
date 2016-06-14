@@ -82,6 +82,14 @@ Then, you might want to setup the CalendarView using some attributes:
 * selectedDayBackground is the background color for selected days (start date and end date)
 * selectedDayTextColor is text color for selected days (start date and end date)
 
+## Dependency
+Add the following dependency to your build.gradle:
+```java
+dependencies {
+    compile 'com.samsaodev.daterangecalendarview:daterangecalendarview:0.1'
+}
+```
+
 ## Screenshots
 
 * From Jun 6 to Jun 23
@@ -101,4 +109,4 @@ Then, you might want to setup the CalendarView using some attributes:
 [Jingsi Lu](https://github.com/qcdyx)
 
 ## License
-
+DateRangeCalendarView is released under the MIT license. See the LICENSE file for details.
